@@ -34,17 +34,21 @@
     [super viewDidLoad];
 
     self.player1 = TRUE;
-    for (int i = 0; i < 9; i++) {
-        self.labelsArray = [[NSArray alloc]initWithObjects:self.label1, self.label2,self.label3, self.label4, self.label5, self.label6, self.label7, self.label8, self.label9, nil];
+
+        self.labelsArray = [[NSArray alloc]initWithObjects: self.label1, self.label2, self.label3, self.label4, self.label5, self.label6, self.label7, self.label8, self.label9, nil];
+
+        //TESTING
+        //Prints out each object in self.labelsArray
+        for (UILabel *label in self.labelsArray)
+        {
+            NSLog(@"1  -  %@", label.description);
+        }
 
 
-    }
+
 }
-
-
-
--(IBAction)onTapGestureButton:(UITapGestureRecognizer *)gesture{
-
+- (IBAction)onTapGestureButton:(UITapGestureRecognizer *)gesture
+{
     CGPoint point = [gesture locationInView:self.view]; // get touched point
     UILabel *foundLabel = [self findLabelUsingPoint:point];// call findLabelUsingPoint and pass point to it
     if (self.player1) {
@@ -52,7 +56,7 @@
         foundLabel.text = @"X";
         foundLabel.textColor = [UIColor redColor];// set label's text to X
         self.player1 = false;//player 2's turn
-//        [self.labelsArray addObject:foundLabel]; // line not necessary right now
+        //        [self.labelsArray addObject:foundLabel]; // line not necessary right now
     }
     else
     {
@@ -60,9 +64,12 @@
         foundLabel.textColor = [UIColor blueColor];
         self.player1 = !self.player1;
     }
-//    [self whoWon]; //line not necessary right now
+    //    [self whoWon]; //line not necessary right now
 
 }
+
+
+
 
 
 
@@ -74,15 +81,16 @@
     UILabel *foundLabel;
     UILabel *nilFoundLabel = nil;
 
+//    for(i=0; i<9; i = i + 1)
     for(UILabel *label in self.labelsArray)// go in each label inside labelsArray
     {
-        if(CGRectContainsPoint(label.frame, point))// if the touched point is inside the label's frame
+        // if the touched point is inside the label's frame
+        if(CGRectContainsPoint(label.frame, point))
         {
             foundLabel = label; // assign label to foundLabel
-
-
+            return foundLabel;// return foundLabel to onLabelTapped
         }
-        return foundLabel;// return foundLabel to onLabelTapped
+        
 
     }
     return nilFoundLabel;

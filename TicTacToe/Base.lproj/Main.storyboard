@@ -99,6 +99,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which Player?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fi-WY-Uu4">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -137,6 +138,9 @@
                                 <include reference="2fi-WY-Uu4"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PLw-ej-A4T" appends="YES" id="5hK-Ic-MrQ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="label1" destination="QKd-DI-bBA" id="ODq-M2-FET"/>
@@ -152,9 +156,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="DcK-ta-ZnR">
+                <tapGestureRecognizer id="PLw-ej-A4T">
                     <connections>
-                        <action selector="onLabelTapped:" destination="vXZ-lx-hvc" id="d0u-DZ-1e0"/>
+                        <action selector="onTapGestureButton:" destination="vXZ-lx-hvc" id="LDf-Cn-BIa"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
